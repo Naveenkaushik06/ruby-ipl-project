@@ -1,10 +1,11 @@
+# Extra runs conceded per team in the year 2016
 require 'csv'
 require 'json'
 require 'gruff'
 matches = CSV.parse(File.read('/home/naveen/Desktop/ruby-ipl-project/src/data/matches.csv'), headers: true)
 deliveries = CSV.parse(File.read('/home/naveen/Desktop/ruby-ipl-project/src/data/deliveries.csv'), headers: true)
 
-# Extra runs conceded per team in the year 2016
+
 def extraRunsByTeam(matches, deliveries)
   extrarun = {}
   for matchdata in matches
@@ -30,7 +31,7 @@ end
 output = {}
 output = extraRunsByTeam(matches, deliveries)
 puts output
-File.open("../public/output/problem-3.json", "wb") { |file| file.puts JSON.pretty_generate(output) }
+File.open('../public/output/problem-3.json', 'wb') { |file| file.puts JSON.pretty_generate(output) }
 
 graph = Gruff::Bar.new
 graph.x_axis_label = 'team'

@@ -1,9 +1,9 @@
+# Number of matches played per year for all the years in IPL.
 require 'csv'
 require 'json'
 require 'gruff'
 matches = CSV.parse(File.read('/home/naveen/Desktop/ruby-ipl-project/src/data/matches.csv'), headers: true)
 
-# Number of matches played per year for all the years in IPL.
 def matchesPerYear(matches)
   result = {}
 
@@ -19,7 +19,7 @@ end
 output = {}
 output = matchesPerYear(matches)
 puts(output)
-File.open("../public/output/problem-1.json", "wb") { |file| file.puts JSON.pretty_generate(output) }
+File.open('../public/output/problem-1.json', 'wb') { |file| file.puts JSON.pretty_generate(output) }
 
 graph = Gruff::Bar.new
 graph.x_axis_label = 'season_wise'
