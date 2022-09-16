@@ -30,8 +30,8 @@ def economicalBowlers(matches, deliveries)
                 end
             end      
      end
-    #  puts bowlers
-   
+     puts bowlers
+
    topten = []
   for eachBowler in bowlers
         eco = eachBowler[1]['totalRuns'] / ( eachBowler[1]['totalBalls'] / 6.0 )
@@ -55,20 +55,20 @@ output = economicalBowlers(matches, deliveries)
 File.open('/home/naveen/Desktop/ruby-ipl-project/src/public/output/problem-4.json','wb'){ |file| file.puts JSON.pretty_generate(output) }
 
 
-plot = Gruff::Bar.new
-plot.x_axis_label = 'Names of Bowlers'
-plot.y_axis_label = 'Top Economy'
-plot.y_axis_increment = 3
-plot.show_labels_for_bar_values = true
-plot.theme = { marker_color: 'black', background_colors: %w[white purple] }
-plot.title = 'Top 10 Economy Bowlers'
+# plot = Gruff::Bar.new
+# plot.x_axis_label = 'Names of Bowlers'
+# plot.y_axis_label = 'Top Economy'
+# plot.y_axis_increment = 3
+# plot.show_labels_for_bar_values = true
+# plot.theme = { marker_color: 'black', background_colors: %w[white purple] }
+# plot.title = 'Top 10 Economy Bowlers'
 
-output.each do |season, matches_count|
+# output.each do |season, matches_count|
   
-  plot.data(season, matches_count, '#'.concat(Random.bytes(3).unpack1('H*').to_s))
-end
+#   plot.data(season, matches_count, '#'.concat(Random.bytes(3).unpack1('H*').to_s))
+# end
 
-plot.write('/home/naveen/Desktop/ruby-ipl-project/src/plots/4_top 10_economy.png')
+# plot.write('/home/naveen/Desktop/ruby-ipl-project/src/plots/4_top 10_economy.png')
 
 
 
